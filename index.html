@@ -74,7 +74,7 @@
 
         /* Styles for the login form */
         .login-form {
-            margin: 0 auto;
+            margin: 100px auto;
             width: 300px;
             padding: 20px;
             border: 1px solid #ccc;
@@ -166,48 +166,34 @@
             <p>This is the content of Page 6, accessible only to SLT tier.</p>
         </div>
 
-<script>
-    // Define an array of login credentials with tiers
-    var credentials = [
-        { username: 'staff1', password: 'password1', tier: 'Staff' },
-        { username: 'leader1', password: 'password2', tier: 'Leadership' },
-        { username: 'slt1', password: 'password3', tier: 'SLT' },
-        // Add more credentials as needed
-     ];
+        <!-- Page 7 -->
+        <div id="page7" style="display: none;" data-tier="SLT"> <!-- New locked page -->
+            <h2>Page 7 (SLT Only)</h2>
+            <p>This is the content of Page 7, accessible only to SLT tier.</p>
+        </div>
+    </div>
 
-    function showPage(pageId) {
-        var currentUser = getCurrentUser();
-
-        if (currentUser) {
-            var pages = document.querySelectorAll('.content > div');
-            for (var i = 0; i < pages.length; i++) {
-                var pageTier = pages[i].getAttribute('data-tier');
-                if (!pageTier || pageTier === currentUser.tier || currentUser.tier === 'SLT') {
-                    if (pages[i].id === pageId) {
-                        pages[i].style.display = 'block';
-                    } else {
-                        pages[i].style.display = 'none';
-                    }
-                }
-            }
-        } else {
-            alert('Please log in to access pages.');
-        }
-    }
-        // Dummy function to get current user (replace with actual authentication)
+    <!-- Script for Navbar Toggle and Page Display -->
+    <script>
         // Function to toggle the visibility of the navbar and adjust content position
-    function toggleNavbar() {
-        var navbar = document.getElementById('navbar');
-        var content = document.getElementById('content');
+        function toggleNavbar() {
+            var navbar = document.getElementById('navbar');
+            var content = document.getElementById('content');
 
-        if (navbar.style.left === '-200px') {
-            navbar.style.left = '0';
-            content.style.marginLeft = '200px';
-        } else {
-            navbar.style.left = '-200px';
-            content.style.marginLeft = '0';
+            if (navbar.style.left === '-200px') {
+                navbar.style.left = '0';
+                content.style.marginLeft = '200px';
+            } else {
+                navbar.style.left = '-200px';
+                content.style.marginLeft = '0';
+            }
         }
-    }
-</script>
 
+        // Function to show a specific page and hide others based on user tier
+        function showPage(pageId) {
+            var currentUser = getCurrentUser();
 
+            if (currentUser) {
+                var pages = document.querySelectorAll('.content > div');
+                for (var i = 0; i < pages.length; i++) {
+                    var pageTier = pages[i
