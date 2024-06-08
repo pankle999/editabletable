@@ -22,8 +22,16 @@ function login() {
         });
 
         if (foundUser) {
-            alert('Login successful! Welcome, ' + foundUser.username + '.');
-            // Redirect to main page or perform other actions
+            // Redirect based on user tier
+            if (foundUser.tier === 'SLT') {
+                window.location.href = 'slt.html';
+            } else if (foundUser.tier === 'Leadership') {
+                window.location.href = 'leadership.html';
+            } else if (foundUser.tier === 'Staff') {
+                window.location.href = 'staff.html';
+            } else if (foundUser.tier === 'Admin') {
+                window.location.href = 'hub.html'; // Redirect admin to hub site
+            }
         } else {
             alert('Invalid username or password');
         }
