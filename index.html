@@ -166,4 +166,44 @@
             <p>This is the content of Page 6, accessible only to SLT tier.</p>
         </div>
 
-       
+<script>
+        // Define an array of login credentials with tiers
+        var credentials = [
+            { username: 'staff1', password: 'password1', tier: 'Staff' },
+            { username: 'leader1', password: 'password2', tier: 'Leadership' },
+            { username: 'slt1', password: 'password3', tier: 'SLT' },
+            // Add more credentials as needed
+        ];
+
+        // Function to show a specific page and hide others based on user tier
+        function showPage(pageId) {
+            var currentUser = getCurrentUser();
+
+            if (currentUser) {
+                var pages = document.querySelectorAll('.content > div');
+                for (var i = 0; i < pages.length; i++) {
+                    var pageTier = pages[i].getAttribute('data-tier');
+                    if (pageTier === currentUser.tier || currentUser.tier === 'SLT') {
+                        if (pages[i].id === pageId) {
+                            pages[i].style.display = 'block';
+                        } else {
+                            pages[i].style.display = 'none';
+                        }
+                    }
+                }
+            } else {
+                alert('Please log in to access pages.');
+            }
+        }
+
+        // Function to toggle the visibility of the navbar and adjust content position
+        function toggleNavbar() {
+            var navbar = document.getElementById('navbar');
+            var content = document.getElementById('content');
+            navbar.style.left = navbar.style.left === '-200px' ? '0' : '-200px';
+            content.style.marginLeft = navbar.style.left === '-200px' ? '0' : '200px';
+        }
+
+        // Dummy function to get current user (replace with actual authentication)
+</script>
+
