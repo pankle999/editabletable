@@ -1,0 +1,17 @@
+[
+    {
+        "username": "admin",
+        "password": "password",
+        "tier": "SLT"
+    },
+    {
+        "username": "leader",
+        "password": "12345",
+        "tier": "Leadership"
+    },
+    {
+        "username": "staff",
+        "password": "abcde",
+        "tier": "Staff"
+    }
+]
