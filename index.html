@@ -168,4 +168,14 @@
                 var pages = document.querySelectorAll('.content > div');
                 for (var i = 0; i < pages.length; i++) {
                     var pageTier = pages[i].getAttribute('data-tier');
-                    if (pageTier ===
+                    if (pageTier === currentUser.tier || currentUser.tier === 'SLT') {
+                        if (pages[i].id === pageId) {
+                            pages[i].style.display = 'block';
+                        } else {
+                            pages[i].style.display = 'none';
+                        }
+                    }
+                }
+            } else {
+                alert('Please log in to access pages.');
+           
