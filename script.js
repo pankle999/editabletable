@@ -24,7 +24,7 @@ function login() {
         if (foundUser) {
             // Redirect based on user tier
             if (foundUser.tier === 'SLT') {
-                window.location.href = 'hub.html'; // Redirect SLT to hub site
+                window.location.href = 'https://pankle999.github.io/rps-bsu/hub.html'; // Redirect SLT to hub site
                 return false;
             } else if (foundUser.tier === 'Leadership') {
                 window.location.href = 'leadership.html';
