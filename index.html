@@ -11,6 +11,7 @@
             color: white;
             padding: 40px 0;
             text-align: center;
+            position: relative;
         }
 
         .header h1 {
@@ -23,20 +24,19 @@
         }
 
         /* Styles for the navigation menu */
-        .navbar-container {
-            display: flex;
-        }
-
         .navbar {
-            width: 200px; /* Width of the left column */
             background-color: #333;
-            height: 100vh; /* Full height of viewport */
-            overflow: auto; /* Enable scrolling if needed */
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 100%;
         }
 
         .navbar a {
+            float: right;
             display: block;
             color: white;
+            text-align: center;
             padding: 14px 20px;
             text-decoration: none;
         }
@@ -49,46 +49,44 @@
 
         /* Styles for the content area */
         .content {
-            flex: 1; /* Fill remaining space */
-            padding: 20px;
+            padding-top: 70px; /* Adjust based on navbar height */
+            padding-left: 200px; /* Same width as navbar */
+            padding-right: 20px;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Menu -->
+    <div class="navbar">
+        <a href="#" onclick="showPage('page1')">Page 1</a>
+        <a href="#" onclick="showPage('page2')">Page 2</a>
+        <a href="#" onclick="showPage('page3')">Page 3</a>
+    </div>
+
     <!-- Header -->
     <div class="header">
         <h1>Modern Art Header</h1>
         <p>This is a modern art-style header area with a red color scheme.</p>
     </div>
 
-    <!-- Navigation Menu and Content Area -->
-    <div class="navbar-container">
-        <!-- Navigation Menu -->
-        <div class="navbar">
-            <a href="#" onclick="showPage('page1')">Page 1</a>
-            <a href="#" onclick="showPage('page2')">Page 2</a>
-            <a href="#" onclick="showPage('page3')">Page 3</a>
+    <!-- Content Area -->
+    <div class="content" id="content">
+        <!-- Page 1 -->
+        <div id="page1" style="display: none;">
+            <h2>Page 1</h2>
+            <p>This is the content of Page 1.</p>
         </div>
 
-        <!-- Content Area -->
-        <div class="content" id="content">
-            <!-- Page 1 -->
-            <div id="page1" style="display: none;">
-                <h2>Page 1</h2>
-                <p>This is the content of Page 1.</p>
-            </div>
+        <!-- Page 2 -->
+        <div id="page2" style="display: none;">
+            <h2>Page 2</h2>
+            <p>This is the content of Page 2.</p>
+        </div>
 
-            <!-- Page 2 -->
-            <div id="page2" style="display: none;">
-                <h2>Page 2</h2>
-                <p>This is the content of Page 2.</p>
-            </div>
-
-            <!-- Page 3 -->
-            <div id="page3" style="display: none;">
-                <h2>Page 3</h2>
-                <p>This is the content of Page 3.</p>
-            </div>
+        <!-- Page 3 -->
+        <div id="page3" style="display: none;">
+            <h2>Page 3</h2>
+            <p>This is the content of Page 3.</p>
         </div>
     </div>
 
