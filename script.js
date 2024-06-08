@@ -24,7 +24,7 @@ function login() {
         if (foundUser) {
             // Redirect based on user tier
             if (foundUser.tier === 'SLT') {
-                window.location.href = 'slt.html';
+                window.location.href = 'hub.html'; // Redirect SLT to hub site
             } else if (foundUser.tier === 'Leadership') {
                 window.location.href = 'leadership.html';
             } else if (foundUser.tier === 'Staff') {
