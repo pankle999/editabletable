@@ -30,6 +30,7 @@
             position: absolute;
             top: 0;
             width: 100%;
+            transition: top 0.3s; /* Add transition effect */
         }
 
         .navbar a {
@@ -53,11 +54,32 @@
             padding-left: 200px; /* Same width as navbar */
             padding-right: 20px;
         }
+
+        /* Collapsible button styles */
+        .navbar-collapse {
+            display: none;
+        }
+
+        .collapse-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .collapse-btn:hover {
+            background-color: #ddd;
+            color: black;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation Menu -->
-    <div class="navbar">
+    <div class="navbar" id="navbar">
+        <button class="collapse-btn" onclick="toggleNavbar()">Toggle Menu</button>
         <a href="#" onclick="showPage('page1')">Page 1</a>
         <a href="#" onclick="showPage('page2')">Page 2</a>
         <a href="#" onclick="showPage('page3')">Page 3</a>
@@ -100,6 +122,16 @@
                 } else {
                     pages[i].style.display = 'none';
                 }
+            }
+        }
+
+        // Function to toggle the visibility of the navbar
+        function toggleNavbar() {
+            var navbar = document.getElementById('navbar');
+            if (navbar.style.top === '0px') {
+                navbar.style.top = '-100px';
+            } else {
+                navbar.style.top = '0px';
             }
         }
     </script>
