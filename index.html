@@ -12,6 +12,7 @@
             padding: 40px 0;
             text-align: center;
             position: relative;
+            z-index: 1; /* Ensure the header is in front of other elements */
         }
 
         .header h1 {
@@ -32,6 +33,7 @@
             width: 200px;
             height: 100%;
             transition: left 0.3s; /* Add transition effect */
+            z-index: 2; /* Ensure the navbar is in front of other elements */
         }
 
         .navbar a {
