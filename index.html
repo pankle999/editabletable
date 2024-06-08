@@ -61,15 +61,14 @@
         .start-page-text {
             text-align: center;
             margin-top: 50px;
-            transition: margin-left 0.3s; /* Add transition effect */
         }
 
         /* Move text to the very left when menu is closed */
-        .menu-closed .start-page-text {
+        .menu-closed .content {
             margin-left: 0;
         }
 
-        .menu-closed .content {
+        .menu-closed .start-page-text {
             margin-left: 0;
         }
     </style>
@@ -131,21 +130,18 @@
             var navbar = document.getElementById('navbar');
             var content = document.getElementById('content');
             var startPageText = document.querySelector('.start-page-text');
+            var isMenuClosed = navbar.style.left === '-200px';
             
-            if (navbar.style.left === '-200px') {
+            if (isMenuClosed) {
                 navbar.style.left = '0px';
                 content.style.marginLeft = '200px';
                 startPageText.style.marginLeft = '200px';
-                document.body.classList.remove('menu-closed');
             } else {
                 navbar.style.left = '-200px';
                 content.style.marginLeft = '0';
                 startPageText.style.marginLeft = '0';
-                document.body.classList.add('menu-closed');
             }
         }
     </script>
 </body>
 </html>
-
-
