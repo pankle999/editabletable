@@ -25,17 +25,19 @@ function login() {
             // Redirect based on user tier
             if (foundUser.tier === 'SLT') {
                 window.location.href = 'hub.html'; // Redirect SLT to hub site
+                return false;
             } else if (foundUser.tier === 'Leadership') {
                 window.location.href = 'leadership.html';
+                return false;
             } else if (foundUser.tier === 'Staff') {
                 window.location.href = 'staff.html';
+                return false;
             } else if (foundUser.tier === 'Admin') {
                 window.location.href = 'hub.html'; // Redirect admin to hub site
+                return false;
             }
-        } else {
-            alert('Invalid username or password');
         }
+        alert('Invalid username or password');
+        return false; // Prevent form submission
     });
-
-    return false; // Prevent form submission
 }
