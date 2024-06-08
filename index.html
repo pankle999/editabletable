@@ -120,6 +120,7 @@
         <a href="#" onclick="showPage('page1')">Page 1</a>
         <a href="#" onclick="showPage('page2')">Page 2</a>
         <a href="#" onclick="showPage('page3')">Page 3</a>
+        <a href="#" onclick="showPage('page4')">Page 4</a>
     </div>
 
     <!-- Content Area -->
@@ -168,4 +169,38 @@
                 var pages = document.querySelectorAll('.content > div');
                 for (var i = 0; i < pages.length; i++) {
                     var pageTier = pages[i].getAttribute('data-tier');
-                    if (pageTier ===
+                    if (pageTier === currentUser.tier || currentUser.tier === 'SLT') {
+                        if (pages[i].id === pageId) {
+                            pages[i].style.display = 'block';
+                        } else {
+                            pages[i].style.display = 'none';
+                        }
+                    }
+                }
+            } else {
+                alert('Please log in to access pages.');
+            }
+        }
+
+        // Function to toggle the visibility of the navbar and adjust content position
+        function toggleNavbar() {
+            var navbar = document.getElementById('navbar');
+            var content = document.getElementById('content');
+            var isMenuClosed = navbar.style.left === '-200px';
+            
+            if (isMenuClosed) {
+                navbar.style.left = '0';
+                content.style.marginLeft = '200px';
+            } else {
+                navbar.style.left = '-200px';
+                content.style.marginLeft = '0';
+            }
+        }
+
+        // Dummy function to get current user (replace with actual authentication)
+        function getCurrentUser() {
+            return credentials[0]; // Dummy implementation, returns first user
+        }
+    </script>
+</body>
+</html>
