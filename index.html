@@ -150,6 +150,14 @@
     </div>
 
     <script>
+        // Define an array of login credentials with tiers
+        var credentials = [
+            { username: 'user1', password: 'password1', tier: 'Staff' },
+            { username: 'user2', password: 'password2', tier: 'Leadership' },
+            { username: 'user3', password: 'password3', tier: 'SLT' },
+            // Add more credentials as needed
+        ];
+
         // Function to show a specific page and hide others
         function showPage(pageId) {
             var pages = document.querySelectorAll('.content > div');
@@ -179,6 +187,13 @@
                 startPageText.style.marginLeft = '0';
             }
         }
-    </script>
-</body>
-</html>
+
+        // Function to handle login
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Loop through credentials array to validate
+            for (var i = 0; i < credentials.length; i++) {
+                if (username === credentials[i].username && password === credentials[i].password) {
+                    alert('Login successful! You are logged
