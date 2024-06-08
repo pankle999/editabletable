@@ -140,60 +140,32 @@
 
         <!-- Page 3 -->
         <div id="page3" style="display: none;">
-            <h2>Login</h2>
-            <div class="login-form">
-                <input type="text" id="username" placeholder="Username"><br>
-                <input type="password" id="password" placeholder="Password"><br>
-                <button onclick="login()">Login</button>
-            </div>
+            <h2>Page 3</h2>
+            <p>This is the content of Page 3.</p>
+        </div>
+
+        <!-- Page 4 -->
+        <div id="page4" style="display: none;">
+            <h2>Page 4</h2>
+            <p>This is the content of Page 4.</p>
         </div>
     </div>
 
     <script>
         // Define an array of login credentials with tiers
         var credentials = [
-            { username: 'user1', password: 'password1', tier: 'Staff' },
-            { username: 'user2', password: 'password2', tier: 'Leadership' },
-            { username: 'user3', password: 'password3', tier: 'SLT' },
+            { username: 'staff1', password: 'password1', tier: 'Staff' },
+            { username: 'leader1', password: 'password2', tier: 'Leadership' },
+            { username: 'slt1', password: 'password3', tier: 'SLT' },
             // Add more credentials as needed
         ];
 
-        // Function to show a specific page and hide others
+        // Function to show a specific page and hide others based on user tier
         function showPage(pageId) {
-            var pages = document.querySelectorAll('.content > div');
-            for (var i = 0; i < pages.length; i++) {
-                if (pages[i].id === pageId) {
-                    pages[i].style.display = 'block';
-                } else {
-                    pages[i].style.display = 'none';
-                }
-            }
-        }
+            var currentUser = getCurrentUser();
 
-        // Function to toggle the visibility of the navbar and adjust content position
-        function toggleNavbar() {
-            var navbar = document.getElementById('navbar');
-            var content = document.getElementById('content');
-            var startPageText = document.querySelector('.start-page-text');
-            var isMenuClosed = navbar.style.left === '-200px';
-            
-            if (isMenuClosed) {
-                navbar.style.left = '0px';
-                content.style.marginLeft = '200px';
-                startPageText.style.marginLeft = '200px';
-            } else {
-                navbar.style.left = '-200px';
-                content.style.marginLeft = '0';
-                startPageText.style.marginLeft = '0';
-            }
-        }
-
-        // Function to handle login
-        function login() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            // Loop through credentials array to validate
-            for (var i = 0; i < credentials.length; i++) {
-                if (username === credentials[i].username && password === credentials[i].password) {
-                    alert('Login successful! You are logged
+            if (currentUser) {
+                var pages = document.querySelectorAll('.content > div');
+                for (var i = 0; i < pages.length; i++) {
+                    var pageTier = pages[i].getAttribute('data-tier');
+                    if (pageTier ===
