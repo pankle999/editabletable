@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 function saveTableData() {
+    console.log('Saving table data');
     const table = document.getElementById('editableTable');
     const rows = table.rows;
     let tableData = [];
@@ -24,6 +25,7 @@ function saveTableData() {
 }
 
 function loadTableData() {
+    console.log('Loading table data');
     const tableData = JSON.parse(localStorage.getItem('tableData'));
     if (tableData) {
         const table = document.getElementById('editableTable');
@@ -36,3 +38,4 @@ function loadTableData() {
         }
     }
 }
+
