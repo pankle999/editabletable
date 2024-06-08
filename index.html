@@ -5,27 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website with Multiple Pages</title>
     <style>
-        /* Styles for navigation menu */
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        .navbar a {
-            float: right;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-
-        /* Change color on hover */
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
         /* Styles for the header area */
         .header {
             background-color: #ff3333; /* Red color */
@@ -43,24 +22,48 @@
             font-size: 24px;
         }
 
+        /* Styles for the navigation menu */
+        .navbar {
+            float: left;
+            width: 200px; /* Width of the left column */
+            background-color: #333;
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scrolling if needed */
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
         /* Styles for the content area */
         .content {
+            margin-left: 200px; /* Same width as the navbar */
             padding: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="#" onclick="showPage('page1')">Page 1</a>
-        <a href="#" onclick="showPage('page2')">Page 2</a>
-        <a href="#" onclick="showPage('page3')">Page 3</a>
-    </div>
     <!-- Header -->
     <div class="header">
         <h1>Modern Art Header</h1>
         <p>This is a modern art-style header area with a red color scheme.</p>
     </div>
 
+    <!-- Navigation Menu -->
+    <div class="navbar">
+        <a href="#" onclick="showPage('page1')">Page 1</a>
+        <a href="#" onclick="showPage('page2')">Page 2</a>
+        <a href="#" onclick="showPage('page3')">Page 3</a>
+    </div>
 
     <!-- Content Area -->
     <div class="content" id="content">
@@ -98,3 +101,4 @@
     </script>
 </body>
 </html>
+
