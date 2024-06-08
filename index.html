@@ -196,14 +196,22 @@
             }
         }
 
-        // Function to toggle the visibility of the navbar and adjust content position
-        function toggleNavbar() {
-            var navbar = document.getElementById('navbar');
-            var content = document.getElementById('content');
-            navbar.style.left = navbar.style.left === '-200px' ? '0' : '-200px';
-            content.style.marginLeft = navbar.style.left === '-200px' ? '0' : '200px';
-        }
-
         // Dummy function to get current user (replace with actual authentication)
 </script>
+<script>
+    // Function to toggle the visibility of the navbar and adjust content position
+    function toggleNavbar() {
+        var navbar = document.getElementById('navbar');
+        var content = document.getElementById('content');
+
+        if (navbar.style.left === '-200px') {
+            navbar.style.left = '0';
+            content.style.marginLeft = '200px';
+        } else {
+            navbar.style.left = '-200px';
+            content.style.marginLeft = '0';
+        }
+    }
+</script>
+
 
