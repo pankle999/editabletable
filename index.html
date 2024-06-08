@@ -71,6 +71,39 @@
         .menu-closed .start-page-text {
             margin-left: 0;
         }
+
+        /* Styles for the login form */
+        .login-form {
+            margin: 0 auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
@@ -107,8 +140,12 @@
 
         <!-- Page 3 -->
         <div id="page3" style="display: none;">
-            <h2>Page 3</h2>
-            <p>This is the content of Page 3.</p>
+            <h2>Login</h2>
+            <div class="login-form">
+                <input type="text" id="username" placeholder="Username"><br>
+                <input type="password" id="password" placeholder="Password"><br>
+                <button onclick="login()">Login</button>
+            </div>
         </div>
     </div>
 
@@ -135,13 +172,4 @@
             if (isMenuClosed) {
                 navbar.style.left = '0px';
                 content.style.marginLeft = '200px';
-                startPageText.style.marginLeft = '200px';
-            } else {
-                navbar.style.left = '-200px';
-                content.style.marginLeft = '0';
-                startPageText.style.marginLeft = '0';
-            }
-        }
-    </script>
-</body>
-</html>
+                startPageText.style.marginLeft = '
