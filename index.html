@@ -24,23 +24,14 @@
         }
 
         /* Styles for the navigation menu */
-        .navbar-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            overflow: hidden;
-            transition: width 0.3s; /* Add transition effect */
-            width: 0; /* Initially collapsed */
-        }
-
         .navbar {
             background-color: #333;
-            width: 200px; /* Width of the collapsed menu */
+            position: absolute;
+            top: 0;
+            left: -200px; /* Initially hidden */
+            width: 200px;
             height: 100%;
-            padding-top: 20px; /* Adjust for padding */
-            padding-bottom: 20px; /* Adjust for padding */
-            box-sizing: border-box;
+            transition: left 0.3s; /* Add transition effect */
         }
 
         .navbar a {
@@ -66,12 +57,10 @@
 </head>
 <body>
     <!-- Navigation Menu -->
-    <div class="navbar-container" id="navbar-container">
-        <div class="navbar">
-            <a href="#" onclick="showPage('page1')">Page 1</a>
-            <a href="#" onclick="showPage('page2')">Page 2</a>
-            <a href="#" onclick="showPage('page3')">Page 3</a>
-        </div>
+    <div class="navbar" id="navbar">
+        <a href="#" onclick="showPage('page1')">Page 1</a>
+        <a href="#" onclick="showPage('page2')">Page 2</a>
+        <a href="#" onclick="showPage('page3')">Page 3</a>
     </div>
 
     <!-- Header -->
@@ -118,11 +107,11 @@
 
         // Function to toggle the visibility of the navbar
         function toggleNavbar() {
-            var navbarContainer = document.getElementById('navbar-container');
-            if (navbarContainer.style.width === '0px' || navbarContainer.style.width === '') {
-                navbarContainer.style.width = '200px';
+            var navbar = document.getElementById('navbar');
+            if (navbar.style.left === '-200px') {
+                navbar.style.left = '0px';
             } else {
-                navbarContainer.style.width = '0px';
+                navbar.style.left = '-200px';
             }
         }
     </script>
