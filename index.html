@@ -24,17 +24,26 @@
         }
 
         /* Styles for the navigation menu */
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
+        .navbar-container {
             position: absolute;
             top: 0;
-            width: 100%;
-            transition: top 0.3s; /* Add transition effect */
+            left: 0;
+            height: 100%;
+            overflow: hidden;
+            transition: width 0.3s; /* Add transition effect */
+            width: 0; /* Initially collapsed */
+        }
+
+        .navbar {
+            background-color: #333;
+            width: 200px; /* Width of the collapsed menu */
+            height: 100%;
+            padding-top: 20px; /* Adjust for padding */
+            padding-bottom: 20px; /* Adjust for padding */
+            box-sizing: border-box;
         }
 
         .navbar a {
-            float: right;
             display: block;
             color: white;
             text-align: center;
@@ -50,45 +59,27 @@
 
         /* Styles for the content area */
         .content {
-            padding-top: 70px; /* Adjust based on navbar height */
-            padding-left: 200px; /* Same width as navbar */
-            padding-right: 20px;
-        }
-
-        /* Collapsible button styles */
-        .navbar-collapse {
-            display: none;
-        }
-
-        .collapse-btn {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 14px 20px;
-            text-align: center;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .collapse-btn:hover {
-            background-color: #ddd;
-            color: black;
+            margin-left: 200px; /* Same width as navbar */
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <!-- Navigation Menu -->
-    <div class="navbar" id="navbar">
-        <button class="collapse-btn" onclick="toggleNavbar()">Toggle Menu</button>
-        <a href="#" onclick="showPage('page1')">Page 1</a>
-        <a href="#" onclick="showPage('page2')">Page 2</a>
-        <a href="#" onclick="showPage('page3')">Page 3</a>
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar">
+            <a href="#" onclick="showPage('page1')">Page 1</a>
+            <a href="#" onclick="showPage('page2')">Page 2</a>
+            <a href="#" onclick="showPage('page3')">Page 3</a>
+        </div>
     </div>
 
     <!-- Header -->
     <div class="header">
         <h1>Modern Art Header</h1>
         <p>This is a modern art-style header area with a red color scheme.</p>
+        <!-- Collapsible Button -->
+        <button class="collapse-btn" onclick="toggleNavbar()">Toggle Menu</button>
     </div>
 
     <!-- Content Area -->
@@ -127,11 +118,11 @@
 
         // Function to toggle the visibility of the navbar
         function toggleNavbar() {
-            var navbar = document.getElementById('navbar');
-            if (navbar.style.top === '0px') {
-                navbar.style.top = '-100px';
+            var navbarContainer = document.getElementById('navbar-container');
+            if (navbarContainer.style.width === '0px' || navbarContainer.style.width === '') {
+                navbarContainer.style.width = '200px';
             } else {
-                navbar.style.top = '0px';
+                navbarContainer.style.width = '0px';
             }
         }
     </script>
