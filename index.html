@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Multiple Pages</title>
+    <style>
+        /* Styles for navigation menu */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .navbar a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Styles for the content area */
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <div class="navbar">
+        <a href="#" onclick="showPage('page1')">Page 1</a>
+        <a href="#" onclick="showPage('page2')">Page 2</a>
+        <a href="#" onclick="showPage('page3')">Page 3</a>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content" id="content">
+        <!-- Page 1 -->
+        <div id="page1" style="display: none;">
+            <h2>Page 1</h2>
+            <p>This is the content of Page 1.</p>
+        </div>
+
+        <!-- Page 2 -->
+        <div id="page2" style="display: none;">
+            <h2>Page 2</h2>
+            <p>This is the content of Page 2.</p>
+        </div>
+
+        <!-- Page 3 -->
+        <div id="page3" style="display: none;">
+            <h2>Page 3</h2>
+            <p>This is the content of Page 3.</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to show a specific page and hide others
+        function showPage(pageId) {
+            var pages = document.querySelectorAll('.content > div');
+            for (var i = 0; i < pages.length; i++) {
+                if (pages[i].id === pageId) {
+                    pages[i].style.display = 'block';
+                } else {
+                    pages[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
