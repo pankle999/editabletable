@@ -14,6 +14,149 @@
             position: relative;
             z-index: 1; /* Ensure the header is in front of other elements */
         }
+A<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Multiple Pages</title>
+    <style>
+        /* Styles for the header area */
+        .header {
+            background-color: #ff3333; /* Red color */
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1; /* Ensure the header is in front of other elements */
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .header p {
+            font-size: 24px;
+        }
+
+        /* Styles for the navigation menu */
+        .navbar {
+            background-color: #333;
+            position: absolute;
+            top: 0;
+            left: -200px; /* Initially hidden */
+            width: 200px;
+            height: 100%;
+            transition: left 0.3s; /* Add transition effect */
+            z-index: 2; /* Ensure the navbar is in front of other elements */
+        }
+
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Styles for the content area */
+        .content {
+            margin-left: 200px; /* Same width as navbar */
+            padding: 20px;
+            transition: margin-left 0.3s; /* Add transition effect */
+        }
+
+        /* Styles for the text area */
+        .start-page-text {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Move text to the very left when menu is closed */
+        .menu-closed .content {
+            margin-left: 0;
+        }
+
+        .menu-closed .start-page-text {
+            margin-left: 0;
+        }
+
+        /* Styles for the login form */
+        .login-form {
+            margin: 100px auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Modern Art Header</h1>
+        <p>This is a modern art-style header area with a red color scheme.</p>
+        <!-- Collapsible Button -->
+        <button class="collapse-btn" onclick="toggleNavbar()">Toggle Menu</button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="navbar" id="navbar">
+        <a href="#" onclick="showPage('page1')">Page 1</a>
+        <a href="#" onclick="showPage('page2')">Page 2</a>
+        <a href="#" onclick="showPage('page3')">Page 3</a>
+        <a href="#" onclick="showPage('page4')">Page 4</a>
+        <a href="#" onclick="showPage('page5')">Page 5</a> <!-- New locked page -->
+        <a href="#" onclick="showPage('page6')">Page 6</a> <!-- New locked page -->
+        <a href="#" onclick="showPage('page7')">Page 7</a> <!-- New locked page -->
+    </div>
+
+    <!-- Content Area -->
+    <div class="content" id="content">
+        <!-- Script for Navbar Toggle and Page Display -->
+        <script>
+            // Function to toggle the visibility of the navbar and adjust content position
+            function toggleNavbar() {
+                var navbar = document.getElementById('navbar');
+                var content = document.getElementById('content');
+
+                if (navbar.style.left === '-200px') {
+                    navbar.style.left = '0';
+                    content.style.marginLeft = '200px';
+                } else {
+                    navbar.style.left = '-200px';
+                    content.style.margin
 
         .header h1 {
             font-size: 48px;
