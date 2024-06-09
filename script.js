@@ -29,8 +29,6 @@ function login() {
                 window.location.href = 'leadership.html';
             } else if (foundUser.tier === 'Staff') {
                 window.location.href = 'staff.html';
-            } else if (foundUser.tier === 'Admin') {
-                window.location.href = 'hub.html'; // Redirect admin to hub site
             }
         } else {
             alert('Invalid username or password');
