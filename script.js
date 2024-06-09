@@ -11,7 +11,7 @@ function loadUsers(callback) {
     xhr.send(null);
 }
 
-// Dummy function to perform login
+// Function to perform login
 function login() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
@@ -25,19 +25,17 @@ function login() {
             // Redirect based on user tier
             if (foundUser.tier === 'SLT') {
                 window.location.href = 'https://pankle999.github.io/rps-bsu/hub.html'; // Redirect SLT to hub site
-                return false;
             } else if (foundUser.tier === 'Leadership') {
                 window.location.href = 'leadership.html';
-                return false;
             } else if (foundUser.tier === 'Staff') {
                 window.location.href = 'staff.html';
-                return false;
             } else if (foundUser.tier === 'Admin') {
                 window.location.href = 'hub.html'; // Redirect admin to hub site
-                return false;
             }
+        } else {
+            alert('Invalid username or password');
         }
-        alert('Invalid username or password');
-        return false; // Prevent form submission
     });
+
+    return false; // Prevent form submission
 }
