@@ -3,14 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Hub</title>
+    <title>Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .link:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Admin Hub</h1>
-    <ul>
-        <li><a href="slt.html">SLT Page</a></li>
-        <li><a href="leadership.html">Leadership Page</a></li>
-        <li><a href="staff.html">Staff Page</a></li>
-    </ul>
+    <div class="banner">Welcome to the Hub</div>
+    <div class="content">
+        <h2>Hub Page</h2>
+        <p>This is the hub page where you can access all other sections.</p>
+        <a class="link" href="slt.html">SLT Page</a>
+        <a class="link" href="leadership.html">Leadership Page</a>
+        <a class="link" href="staff.html">Staff Page</a>
+    </div>
 </body>
 </html>
