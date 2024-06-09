@@ -1,17 +1,22 @@
 [
     {
         "username": "admin",
-        "password": "password",
+        "password": "sltdabest",
         "tier": "SLT"
     },
     {
-        "username": "leader",
-        "password": "12345",
+        "username": "emmacrawford211",
+        "password": "pending",
         "tier": "Leadership"
     },
     {
-        "username": "staff",
-        "password": "abcde",
+        "username": "theyluvrems",
+        "password": "pending",
+        "tier": "Leadership"
+    },
+    {
+        "username": "mackenzie7734",
+        "password": "pending",
         "tier": "Staff"
     }
 ]
