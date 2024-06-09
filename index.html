@@ -5,24 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
-        /* Styles for the login form */
-        .login-form {
-            margin: 100px auto;
-            width: 300px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
         }
-
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .textbox {
+            background-color: #ffcccc;
+            border: 1px solid #ff8888;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            color: #a94442;
+            font-size: 16px;
+        }
         .login-form input[type="text"],
         .login-form input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
         .login-form button {
             width: 100%;
             padding: 10px;
@@ -31,18 +48,20 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
-
         .login-form button:hover {
             background-color: #45a049;
         }
-
     </style>
 </head>
 <body>
-    <div class="login-form">
+    <div class="container">
+        <div class="textbox">
+            <p>Welcome! Please log in to access the portal.</p>
+        </div>
         <h2>Login</h2>
-        <form id="loginForm" onsubmit="return login()">
+        <form class="login-form" id="loginForm" onsubmit="return login()">
             <input type="text" id="username" name="username" placeholder="Username" required><br>
             <input type="password" id="password" name="password" placeholder="Password" required><br>
             <button type="submit">Login</button>
