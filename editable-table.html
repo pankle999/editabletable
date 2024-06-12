@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Table with Checkboxes</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+    <h2>Editable Table with Checkboxes</h2>
+    <table id="editableTable">
+        <thead>
+            <tr>
+                <th>Column 1</th>
+                <th>Column 2</th>
+                <th>Column 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be populated dynamically -->
+        </tbody>
+    </table>
+
+    <button onclick="saveTableData()">Save</button>
+
+    <script>
+        // Function to fetch table data from server
+        async function loadTableData() {
+            try {
+                const response = await fetch('/api/table-data');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                if (data) {
+                    const table = document.getElementById('editableTable');
+                    const tbody = table.querySelector('tbody');
+                    tbody.innerHTML = ''; // Clear existing rows
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        row.forEach(cell => {
+                            const td = document.createElement('td');
+                            const checkbox = document.createElement('input');
+                            checkbox.type = 'checkbox';
+                            checkbox.checked = cell;
+                            td.appendChild(checkbox);
+                            tr.appendChild(td);
+                        });
+                        tbody.appendChild(tr);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading table data:', error);
+            }
+        }
+
+        // Function to save table data to server
+        async function saveTableData() {
+            try {
+                const table = document.getElementById('editableTable');
+                const rows = table.querySelectorAll('tbody tr');
+                let tableData = [];
+                rows.forEach(row => {
+                    let rowData = [];
+                    const cells = row.querySelectorAll('td');
+                    cells.forEach(cell => {
+                        rowData.push(cell.querySelector('input').checked);
+                    });
+                    tableData.push(rowData);
+                });
+                const response = await fetch('/api/table-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(tableData)
+                });
+                const result = await response.json();
+                alert(result.message);
+            } catch (error) {
+                console.error('Error saving table data:', error);
+            }
+        }
+
+        // Load table data on page load
+        window.onload = loadTableData;
+    </script>
+</body>
+</html>
