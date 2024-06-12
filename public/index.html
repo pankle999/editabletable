@@ -3,69 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .login-container {
             width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            margin: 0 0 20px;
             text-align: center;
         }
-        .textbox {
-            background-color: #ffcccc;
-            border: 1px solid #ff8888;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            color: #a94442;
-            font-size: 16px;
-        }
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
-            width: 100%;
+        .login-container input {
+            width: calc(100% - 20px);
             padding: 10px;
             margin: 10px 0;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 5px;
         }
-        .login-form button {
-            width: 100%;
+        .login-container button {
+            width: calc(100% - 20px);
             padding: 10px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #007BFF;
+            color: #fff;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
-        }
-        .login-form button:hover {
-            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="textbox">
-            <p>Welcome! Please log in to access the portal.</p>
-        </div>
+    <div class="login-container">
         <h2>Login</h2>
-        <form class="login-form" id="loginForm" onsubmit="return login()">
-            <input type="text" id="username" name="username" placeholder="Username" required><br>
-            <input type="password" id="password" name="password" placeholder="Password" required><br>
-            <button type="submit">Login</button>
-        </form>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
     </div>
 
     <script src="script.js"></script>

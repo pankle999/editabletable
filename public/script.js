@@ -11,29 +11,29 @@ function loadUsers(callback) {
     xhr.send(null);
 }
 
-// Function to perform login
-function login() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+// Function to handle login
+async function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    loadUsers(function(users) {
-        var foundUser = users.find(function(user) {
-            return user.username === username && user.password === password;
-        });
+    try {
+        const response = await fetch('/api/users');
+        const users = await response.json();
 
-        if (foundUser) {
-            // Redirect based on user tier
-            if (foundUser.tier === 'SLT') {
-                window.location.href = 'https://pankle999.github.io/rps-bsu/hub.html'; // Redirect SLT to hub site
-            } else if (foundUser.tier === 'Leadership') {
+        const user = users.find(u => u.username === username && u.password === password);
+
+        if (user) {
+            if (user.tier === 'SLT') {
+                window.location.href = 'hub.html';
+            } else if (user.tier === 'Leadership') {
                 window.location.href = 'leadership.html';
-            } else if (foundUser.tier === 'Staff') {
+            } else if (user.tier === 'Staff') {
                 window.location.href = 'staff.html';
             }
         } else {
-            alert('Invalid username or password');
+            alert('Invalid login');
         }
-    });
-
-    return false; // Prevent form submission
+    } catch (error) {
+        console.error('Error fetching users:', error);
+    }
 }
